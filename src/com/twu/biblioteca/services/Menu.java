@@ -1,4 +1,6 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.services;
+
+import com.twu.biblioteca.models.MenuItem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,4 +28,14 @@ public class Menu {
 
         return menu;
     }
+
+    public String chooseOption(int option) {
+        switch (option) {
+            case 1:
+                return "Example Book - Author One";
+            default:
+                return "";
+        }
+    }
+
 }

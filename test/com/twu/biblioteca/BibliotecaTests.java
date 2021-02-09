@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.services.Menu;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -20,14 +21,27 @@ public class BibliotecaTests {
     }
 
     @Test
-    public void shouldReturnMenuAfterWelcomeMessage() throws IOException {
+    public void shouldReturnMenuAfterWelcomeMessage() {
         //given
-        BibliotecaApp bibliotecaApp = new BibliotecaApp();
+        Menu menu = new Menu();
 
         //when
-        String menu = bibliotecaApp.showMenu();
+        String showMenu = menu.show();
 
         //then
-        Assert.assertEquals("\n========== Menu ==========\n1. List of books", menu);
+        Assert.assertEquals("\n========== Menu ==========\n1. List of books", showMenu);
     }
+
+    @Test
+    public void shouldReturnListOfBooksWhenUserChooses1OnMenu() {
+        //given
+        Menu menu = new Menu();
+
+        //when
+        String books = menu.chooseOption(1);
+
+        //then
+        Assert.assertEquals("Example Book - Author One", books);
+    }
+
 }
