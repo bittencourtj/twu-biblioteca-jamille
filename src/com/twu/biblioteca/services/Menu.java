@@ -13,7 +13,7 @@ public class Menu {
         this.items = addItems();
     }
 
-    public List<MenuItem> addItems() {
+    private List<MenuItem> addItems() {
         List<MenuItem> listItems = new ArrayList<>();
         listItems.add(new MenuItem(1, "List of books"));
 
