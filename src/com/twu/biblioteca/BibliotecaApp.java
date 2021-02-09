@@ -18,7 +18,9 @@ public class BibliotecaApp {
     }
 
     public String showMenu() {
-        return "\n========== Menu ==========\n1. List of books";
+        Menu menu = new Menu();
+
+        return menu.show();
     }
 
 }
