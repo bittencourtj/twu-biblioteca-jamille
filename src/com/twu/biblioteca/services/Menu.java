@@ -34,7 +34,7 @@ public class Menu {
             case 1:
                 return "Example Book - Author One";
             default:
-                return "";
+                return "Please select a valid option!";
         }
     }
 

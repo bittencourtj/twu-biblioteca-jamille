@@ -44,4 +44,16 @@ public class BibliotecaTests {
         Assert.assertEquals("Example Book - Author One", books);
     }
 
+    @Test
+    public void shouldReturnErrorMessageWhenUsrSelectsInvalidOption() {
+        //given
+        Menu menu = new Menu();
+
+        //when
+        String errorMessage = menu.chooseOption(98754);
+
+        //then
+        Assert.assertEquals("Please select a valid option!", errorMessage);
+    }
+
 }
