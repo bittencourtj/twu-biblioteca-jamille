@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.services.Library;
 import com.twu.biblioteca.services.Menu;
 import org.junit.Assert;
 import org.junit.Test;
@@ -9,10 +10,10 @@ public class BibliotecaTests {
     @Test
     public void shouldReturnWelcomeMessageWhenAppStarts(){
         //given
-        BibliotecaApp bibliotecaApp = new BibliotecaApp();
+        Library library = new Library();
 
         //when
-        String welcomeMessage = bibliotecaApp.openLibrary();
+        String welcomeMessage = library.openLibrary();
 
         //then
         Assert.assertEquals("Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!", welcomeMessage);

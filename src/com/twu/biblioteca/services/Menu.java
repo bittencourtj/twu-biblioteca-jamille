@@ -1,5 +1,6 @@
 package com.twu.biblioteca.services;
 
+import com.twu.biblioteca.helpers.Constants;
 import com.twu.biblioteca.models.MenuItem;
 
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ public class Menu {
     }
 
     public String show() {
-        String menu = "\n========== Menu ==========\n";
+        String menu = Constants.MENU_TITLE;
         for (MenuItem item : items) {
             menu += item.toString();
         }
@@ -35,7 +36,7 @@ public class Menu {
                 Books books = new Books();
                 return books.all();
             default:
-                return "Please select a valid option!";
+                return Constants.INVALID_OPTION_MESSAGE;
         }
     }
 
