@@ -39,7 +39,7 @@ public class BibliotecaTests {
         String books = menu.chooseOption(1);
 
         //then
-        Assert.assertEquals("Example Book - Author One", books);
+        Assert.assertEquals("1. Example Book - Author One - 1999", books);
     }
 
     @Test

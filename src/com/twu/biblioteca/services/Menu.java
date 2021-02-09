@@ -32,7 +32,8 @@ public class Menu {
     public String chooseOption(int option) {
         switch (option) {
             case 1:
-                return "Example Book - Author One";
+                Books books = new Books();
+                return books.all();
             default:
                 return "Please select a valid option!";
         }
