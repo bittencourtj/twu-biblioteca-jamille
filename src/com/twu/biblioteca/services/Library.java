@@ -2,35 +2,33 @@ package com.twu.biblioteca.services;
 
 import com.twu.biblioteca.helpers.Constants;
 
-import java.io.IOException;
-import java.util.Scanner;
+import static com.twu.biblioteca.services.Console.print;
 
 public class Library {
 
+    //private Console console = new Console();
     public void execute() {
-        System.out.println(openLibrary());
+        print(openLibrary());
 
         showMenu();
     }
 
     private void showMenu() {
         Menu menu = new Menu();
-        Scanner sc = new Scanner(System.in);
         int option = 0;
 
         do {
-            //todo: extract sysout and sysin to ConsoleHelper class
-            System.out.println(menu.show());
-            option = sc.nextInt();
+            Console.print(menu.show());
+            option = Console.readIntInput();
 
-            System.out.println(menu.chooseOption(option));
+            Console.print(menu.chooseOption(option));
         }
         while (isValid(option));
     }
 
     private boolean isValid(int option) {
         if (option == 4){
-            System.out.println(Constants.GOODBYE_MESSAGE);
+            Console.print(Constants.GOODBYE_MESSAGE);
             return false;
         }
         return true;

@@ -5,13 +5,11 @@ import com.twu.biblioteca.models.MenuItem;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Menu {
 
     private List<MenuItem> items;
     private Books books = new Books();
-    private Scanner sc = new Scanner(System.in);
 
     public Menu() {
         this.items = addItems();
@@ -43,11 +41,11 @@ public class Menu {
                 return books.all();
             case 2:
                 books.chooseCheckoutBook();
-                bookId = sc.nextInt();
+                bookId = Console.readIntInput();
                 return books.checkout(bookId);
             case 3:
-                System.out.println("Type the book id you wish to return.");
-                bookId = sc.nextInt();
+                Console.print("Type the book id you wish to return.");
+                bookId = Console.readIntInput();
                 return books.returnBook(bookId);
             case 4:
                 return "";

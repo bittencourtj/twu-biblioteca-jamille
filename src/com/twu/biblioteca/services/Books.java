@@ -7,7 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Books {
-
+    //checkout, return
+    //add, all, getById?
     private List<Book> books;
 
     public Books() {
@@ -31,15 +32,13 @@ public class Books {
     }
 
     public String returnBook(int bookId) {
-        if(returnValidBook(bookId))
+        if (returnValidBook(bookId))
             return Constants.RETURN_BOOK_SUCCESS_MESSAGE;
         return Constants.RETURN_BOOK_ERROR_MESSAGE;
     }
 
     public void chooseCheckoutBook() {
-        System.out.println("Books available for checkout: ");
-        System.out.println(all());
-        System.out.println("Choose the book id you wish to checkout.");
+        Console.print("Books available for checkout: \n" + all() + "Choose the book id you wish to checkout.");
     }
 
     private List<Book> addBooks() {
