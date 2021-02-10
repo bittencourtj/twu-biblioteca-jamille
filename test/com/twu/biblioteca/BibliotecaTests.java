@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.helpers.Constants;
 import com.twu.biblioteca.services.Library;
 import com.twu.biblioteca.services.Menu;
 import org.junit.Assert;
@@ -16,7 +17,7 @@ public class BibliotecaTests {
         String welcomeMessage = library.openLibrary();
 
         //then
-        Assert.assertEquals("Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!", welcomeMessage);
+        Assert.assertEquals(Constants.WELCOME_MESSAGE, welcomeMessage);
     }
 
     @Test
@@ -52,7 +53,8 @@ public class BibliotecaTests {
         String errorMessage = menu.chooseOption(98754);
 
         //then
-        Assert.assertEquals("Please select a valid option!", errorMessage);
+        Assert.assertEquals(Constants.INVALID_OPTION_MESSAGE, errorMessage);
     }
+
 
 }

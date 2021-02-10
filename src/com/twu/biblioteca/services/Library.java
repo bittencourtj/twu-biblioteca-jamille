@@ -6,14 +6,15 @@ import java.io.IOException;
 
 public class Library {
 
-    public void principal() throws IOException {
+    public void execute() throws IOException {
         System.out.println(openLibrary());
 
-        menu();
+        showMenu();
     }
 
-    private void menu() throws IOException {
+    private void showMenu() throws IOException {
         Menu menu = new Menu();
+        //todo: extract sysout and sysin
         System.out.println(menu.show());
 
         int option = System.in.read();

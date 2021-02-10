@@ -8,6 +8,6 @@ public class BibliotecaApp {
 
     public static void main(String[] args) throws IOException {
         Library library = new Library();
-        library.principal();
+        library.execute();
     }
 }
