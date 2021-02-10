@@ -2,23 +2,35 @@ package com.twu.biblioteca.services;
 
 import com.twu.biblioteca.helpers.Constants;
 
-import java.io.IOException;
+import java.util.Scanner;
 
 public class Library {
 
-    public void execute() throws IOException {
+    public void execute() {
         System.out.println(openLibrary());
 
         showMenu();
     }
 
-    private void showMenu() throws IOException {
+    private void showMenu() {
         Menu menu = new Menu();
-        //todo: extract sysout and sysin
-        System.out.println(menu.show());
+        Scanner sc = new Scanner(System.in);
+        int option = 0;
 
-        int option = System.in.read();
-        System.out.println(menu.chooseOption(Character.getNumericValue(option)));
+        do {
+            //todo: extract sysout and sysin to ConsoleHelper class
+            System.out.println(menu.show());
+            option = sc.nextInt();
+
+            System.out.println(menu.chooseOption(option));
+        }
+        while (isValid(option));
+    }
+
+    private boolean isValid(int option) {
+        if (option == 99)
+            return false;
+        return true;
     }
 
     public String openLibrary() {
