@@ -2,6 +2,7 @@ package com.twu.biblioteca.services;
 
 import com.twu.biblioteca.helpers.Constants;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Library {
@@ -28,8 +29,10 @@ public class Library {
     }
 
     private boolean isValid(int option) {
-        if (option == 99)
+        if (option == 4){
+            System.out.println(Constants.GOODBYE_MESSAGE);
             return false;
+        }
         return true;
     }
 

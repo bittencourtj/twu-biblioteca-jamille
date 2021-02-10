@@ -22,6 +22,7 @@ public class Menu {
         listItems.add(new MenuItem(1, "List of books"));
         listItems.add(new MenuItem(2, "Checkout book"));
         listItems.add(new MenuItem(3, "Return book"));
+        listItems.add(new MenuItem(4, "Quit application"));
 
         return listItems;
     }
@@ -48,6 +49,8 @@ public class Menu {
                 System.out.println("Type the book id you wish to return.");
                 bookId = sc.nextInt();
                 return books.returnBook(bookId);
+            case 4:
+                return "";
             default:
                 return Constants.INVALID_OPTION_MESSAGE;
         }
