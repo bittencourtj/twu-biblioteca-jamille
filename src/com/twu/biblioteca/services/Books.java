@@ -27,8 +27,7 @@ public class Books {
     public String checkout(int bookId) {
         if (checkoutValidBook(bookId))
             return Constants.CHECKOUT_SUCCESS_MESSAGE;
-
-        return "";
+        return Constants.CHECKOUT_ERROR_MESSAGE;
     }
 
     public void chooseCheckoutBook() {

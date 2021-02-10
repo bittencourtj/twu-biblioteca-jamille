@@ -97,7 +97,7 @@ public class BibliotecaTests {
     @Test
     public void shouldReturnListOfBooksWithoutCheckedOutBooks() {
         //given
-        String successMessage = books.checkout(2);
+        books.checkout(2);
 
         //when
         String availableBooks = books.all();
@@ -106,5 +106,13 @@ public class BibliotecaTests {
         Assert.assertEquals(availableBookList, availableBooks);
     }
 
+    @Test
+    public void shouldReturnErrorMessageWhenUserCheckoutsBookUnavailable() {
+        //when
+        String checkoutMessage = books.checkout(6);
+
+        //then
+        Assert.assertEquals(Constants.CHECKOUT_ERROR_MESSAGE, checkoutMessage);
+    }
 
 }
