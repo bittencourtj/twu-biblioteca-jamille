@@ -58,7 +58,7 @@ public class BibliotecaTests {
         String showMenu = menu.show();
 
         //then
-        Assert.assertEquals("\n========== Menu ==========\n1. List of books\n2. Checkout book\n", showMenu);
+        Assert.assertEquals("\n========== Menu ==========\n1. List of books\n2. Checkout book\n3. Return book\n", showMenu);
     }
 
     @Test
@@ -109,10 +109,29 @@ public class BibliotecaTests {
     @Test
     public void shouldReturnErrorMessageWhenUserCheckoutsBookUnavailable() {
         //when
-        String checkoutMessage = books.checkout(6);
+        String checkoutMessage = books.checkout(64);
 
         //then
         Assert.assertEquals(Constants.CHECKOUT_ERROR_MESSAGE, checkoutMessage);
+    }
+
+    @Test
+    public void shouldReturnSuccessMessageWhenUserReturnsBook2() {
+        //when
+        books.checkout(2);
+        String successMessage = books.returnBook(2);
+
+        //then
+        Assert.assertEquals(Constants.RETURN_BOOK_SUCCESS_MESSAGE, successMessage);
+    }
+
+    @Test
+    public void shouldReturnErrorMessageWhenUserReturnsWrongBook() {
+        //when
+        String errorMessage = books.returnBook(2);
+
+        //then
+        Assert.assertEquals(Constants.RETURN_BOOK_ERROR_MESSAGE, errorMessage);
     }
 
 }

@@ -21,6 +21,7 @@ public class Menu {
         List<MenuItem> listItems = new ArrayList<>();
         listItems.add(new MenuItem(1, "List of books"));
         listItems.add(new MenuItem(2, "Checkout book"));
+        listItems.add(new MenuItem(3, "Return book"));
 
         return listItems;
     }
@@ -35,13 +36,18 @@ public class Menu {
     }
 
     public String chooseOption(int option) {
+        int bookId = 0;
         switch (option) {
             case 1:
                 return books.all();
             case 2:
                 books.chooseCheckoutBook();
-                int bookId = sc.nextInt();
+                bookId = sc.nextInt();
                 return books.checkout(bookId);
+            case 3:
+                System.out.println("Type the book id you wish to return.");
+                bookId = sc.nextInt();
+                return books.returnBook(bookId);
             default:
                 return Constants.INVALID_OPTION_MESSAGE;
         }

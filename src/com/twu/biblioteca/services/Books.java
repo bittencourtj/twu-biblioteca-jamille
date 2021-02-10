@@ -30,6 +30,12 @@ public class Books {
         return Constants.CHECKOUT_ERROR_MESSAGE;
     }
 
+    public String returnBook(int bookId) {
+        if(returnValidBook(bookId))
+            return Constants.RETURN_BOOK_SUCCESS_MESSAGE;
+        return Constants.RETURN_BOOK_ERROR_MESSAGE;
+    }
+
     public void chooseCheckoutBook() {
         System.out.println("Books available for checkout: ");
         System.out.println(all());
@@ -63,4 +69,14 @@ public class Books {
         }
         return false;
     }
+
+    private boolean returnValidBook(int bookId) {
+        Book book = getBookById(bookId);
+        if (book != null && !book.isAvailable()) {
+            book.setAvailable(true);
+            return true;
+        }
+        return false;
+    }
+
 }
