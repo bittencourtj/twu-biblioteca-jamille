@@ -1,5 +1,7 @@
 package com.twu.biblioteca.models;
 
+import com.twu.biblioteca.helpers.Constants;
+
 public class Book {
 
     private int id;
@@ -16,6 +18,6 @@ public class Book {
 
     @Override
     public String toString() {
-        return id + ". " + title + " - " + author + " - " + yearPublished;
+        return id + ". " + title + Constants.SEPARATOR + author + Constants.SEPARATOR + yearPublished;
     }
 }
