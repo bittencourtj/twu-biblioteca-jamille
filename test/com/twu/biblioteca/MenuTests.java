@@ -9,12 +9,17 @@ import org.junit.Test;
 
 public class MenuTests {
     private Menu menu;
+    String menuText;
 
     @Before
-    public void setup()
-    {
+    public void setup() {
         //given
         menu = new Menu();
+        menuText = "========== Menu ==========\n" +
+                "1. List of books\n" +
+                "2. Checkout book\n" +
+                "3. Return book\n" +
+                "4. Quit application\n";
     }
 
     @Test
@@ -23,7 +28,7 @@ public class MenuTests {
         String showMenu = menu.show();
 
         //then
-        Assert.assertEquals("\n========== Menu ==========\n1. List of books\n2. Checkout book\n3. Return book\n4. Quit application\n", showMenu);
+        Assert.assertThat(showMenu, Is.is(menuText));
     }
 
     @Test
@@ -41,7 +46,7 @@ public class MenuTests {
         String errorMessage = menu.chooseOption(98754);
 
         //then
-        Assert.assertEquals(Constants.INVALID_OPTION_MESSAGE, errorMessage);
+        Assert.assertThat(errorMessage, Is.is(Constants.INVALID_OPTION_MESSAGE));
     }
 
 }
