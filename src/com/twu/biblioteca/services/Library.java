@@ -6,7 +6,6 @@ import static com.twu.biblioteca.services.Console.print;
 
 public class Library {
 
-    //private Console console = new Console();
     public void execute() {
         print(openLibrary());
 

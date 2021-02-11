@@ -8,7 +8,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class BookTests {
@@ -16,14 +15,15 @@ public class BookTests {
     private String availableBookList = "";
 
     @Before
-    public void setup() {
+    public void setUp() {
         //given
         books = new Books();
-        List<Book> bookExamples = new ArrayList<>();
-        bookExamples.add(new Book(1, "Example Book", "Author One", true, (short) 1999));
-        bookExamples.add(new Book(2, "Book 2", "Author Two", false, (short) 1997));
-        bookExamples.add(new Book(3, "Book 3", "Author Three", true, (short) 2010));
-        bookExamples.add(new Book(4, "Book 4", "Author Four", true, (short) 1968));
+        List<Book> bookExamples = List.of(
+                new Book(1, "Neuromancer", "William Gibson", true, (short) 1984),
+                new Book(2, "V for Vendetta", "Author Two", false, (short) 1997),
+                new Book(3, "Harry Potter and the Order of the Phoenix", "J. K. Rowling", true, (short) 2003),
+                new Book(4, "Maus", "Art Spiegelman", true, (short) 1980)
+        );
 
         for (Book book : bookExamples) {
             if (book.isAvailable())
@@ -32,9 +32,9 @@ public class BookTests {
     }
 
     @Test
-    public void shouldReturnSuccessMessageWhenUserCheckoutsBook2() {
+    public void shouldReturnSuccessMessageWhenUserCheckoutsBook() {
         //when
-        String checkoutMessage = books.checkout(2);
+        String checkoutMessage = books.checkout(1);
 
         //then
         Assert.assertThat(checkoutMessage, Is.is(Constants.CHECKOUT_SUCCESS_MESSAGE));
@@ -46,7 +46,7 @@ public class BookTests {
         books.checkout(2);
 
         //when
-        String availableBooks = books.all();
+        String availableBooks = books.getAll();
 
         //then
         Assert.assertThat(availableBooks, Is.is(availableBookList));
@@ -62,10 +62,10 @@ public class BookTests {
     }
 
     @Test
-    public void shouldReturnSuccessMessageWhenUserReturnsBook2() {
+    public void shouldReturnSuccessMessageWhenUserReturnsBook() {
         //when
-        books.checkout(2);
-        String successMessage = books.returnBook(2);
+        books.checkout(1);
+        String successMessage = books.returnBook(1);
 
         //then
         Assert.assertThat(successMessage, Is.is(Constants.RETURN_BOOK_SUCCESS_MESSAGE));
@@ -74,7 +74,7 @@ public class BookTests {
     @Test
     public void shouldReturnErrorMessageWhenUserReturnsWrongBook() {
         //when
-        String errorMessage = books.returnBook(2);
+        String errorMessage = books.returnBook(1);
 
         //then
         Assert.assertThat(errorMessage, Is.is(Constants.RETURN_BOOK_ERROR_MESSAGE));

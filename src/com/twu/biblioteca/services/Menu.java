@@ -38,7 +38,7 @@ public class Menu {
         int bookId = 0;
         switch (option) {
             case 1:
-                return books.all();
+                return books.getAll();
             case 2:
                 books.chooseCheckoutBook();
                 bookId = Console.readIntInput();

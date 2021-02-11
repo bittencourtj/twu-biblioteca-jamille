@@ -8,16 +8,13 @@ import org.junit.Test;
 
 
 public class BibliotecaTests {
-    
+
     @Test
     public void shouldReturnWelcomeMessageWhenAppStarts() {
-        //given
         Library library = new Library();
 
-        //when
         String welcomeMessage = library.openLibrary();
 
-        //then
         Assert.assertThat(welcomeMessage, Is.is(Constants.WELCOME_MESSAGE));
     }
 
