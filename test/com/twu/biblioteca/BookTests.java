@@ -2,7 +2,7 @@ package com.twu.biblioteca;
 
 import com.twu.biblioteca.helpers.Constants;
 import com.twu.biblioteca.models.Book;
-import com.twu.biblioteca.services.Books;
+import com.twu.biblioteca.services.BookService;
 import org.hamcrest.core.Is;
 import org.junit.Assert;
 import org.junit.Before;
@@ -11,13 +11,13 @@ import org.junit.Test;
 import java.util.List;
 
 public class BookTests {
-    private Books books;
+    private BookService books;
     private String availableBookList = "";
 
     @Before
     public void setUp() {
         //given
-        books = new Books();
+        books = new BookService();
         List<Book> bookExamples = List.of(
                 new Book(1, "Neuromancer", "William Gibson", true, (short) 1984),
                 new Book(2, "V for Vendetta", "Author Two", false, (short) 1997),
@@ -46,7 +46,7 @@ public class BookTests {
         books.checkout(2);
 
         //when
-        String availableBooks = books.getAll();
+        String availableBooks = books.getAllAvailable();
 
         //then
         Assert.assertThat(availableBooks, Is.is(availableBookList));

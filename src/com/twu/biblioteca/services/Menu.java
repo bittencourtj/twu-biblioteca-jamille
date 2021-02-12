@@ -9,7 +9,7 @@ import java.util.List;
 public class Menu {
 
     private List<MenuItem> items;
-    private Books books = new Books();
+    private BookService books = new BookService();
 
     public Menu() {
         this.items = addItems();

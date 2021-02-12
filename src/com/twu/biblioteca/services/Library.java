@@ -22,15 +22,16 @@ public class Library {
 
             Console.print(menu.chooseOption(option));
         }
-        while (isValid(option));
+        while (isQuit(option));
     }
 
-    private boolean isValid(int option) {
-        if (option == 4){
-            Console.print(Constants.GOODBYE_MESSAGE);
-            return false;
+    private boolean isQuit(int option) {
+        if (option != 4) {
+            return true;
         }
-        return true;
+
+        Console.print(Constants.GOODBYE_MESSAGE);
+        return false;
     }
 
     public String openLibrary() {

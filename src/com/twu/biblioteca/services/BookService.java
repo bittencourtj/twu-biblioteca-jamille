@@ -5,11 +5,11 @@ import com.twu.biblioteca.models.Book;
 
 import java.util.List;
 
-public class Books {
+public class BookService {
 
     private List<Book> books;
 
-    public Books() {
+    public BookService() {
         this.books = addBooks();
     }
 
@@ -25,6 +25,14 @@ public class Books {
     }
 
     public String getAll() {
+        String bookList = "";
+        for (Book book : books) {
+            bookList += book.toString() + "\n";
+        }
+        return bookList;
+    }
+
+    public String getAllAvailable() {
         String bookList = "";
 
         for (Book book : books) {
@@ -47,7 +55,7 @@ public class Books {
     }
 
     public void chooseCheckoutBook() {
-        Console.print("Books available for checkout: \n" + getAll() + "Choose the book id you wish to checkout.");
+        Console.print("Books available for checkout: \n" + getAllAvailable() + "Choose the book id you wish to checkout.");
     }
 
 
